@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://bj6872qhfflv2"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ww0un"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_ww0un"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_02vie"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_mmhng"]
+
+[node name="CubeTest" type="StaticBody3D" unique_id=175751538]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 0)
+physics_material_override = SubResource("PhysicsMaterial_ww0un")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=312109622]
+mesh = SubResource("SphereMesh_ww0un")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1936453272]
+shape = SubResource("BoxShape3D_02vie")
+
+[node name="Area3D" type="Area3D" parent="." unique_id=1827393733]
+gravity_space_override = 3
+gravity_point = true
+gravity_point_center = Vector3(0, 0, 0)
+gravity_direction = Vector3(0, 0, 0)
+gravity = 20.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1425691068]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+shape = SubResource("SphereShape3D_mmhng")
+debug_color = Color(2.0599935, 0, 1.0676688, 0.41960785)

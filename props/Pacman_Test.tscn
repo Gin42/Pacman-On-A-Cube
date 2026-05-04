@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://cgh3jwb23t8md"]
+
+[ext_resource type="Script" uid="uid://c5o0r33pq1vt3" path="res://scripts/PacmanTest.cs" id="1_tt4ta"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_6fqby"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_tt4ta"]
+
+[node name="RigidBody3D" type="RigidBody3D" unique_id=2074880738]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+lock_rotation = true
+contact_monitor = true
+max_contacts_reported = 1
+script = ExtResource("1_tt4ta")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1741770345]
+mesh = SubResource("SphereMesh_6fqby")
+
+[node name="RemoteTransform3D" type="RemoteTransform3D" parent="MeshInstance3D" unique_id=1935005898]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1194828953]
+shape = SubResource("SphereShape3D_tt4ta")

@@ -1,19 +1,24 @@
 using Godot;
+using System;
 
-public partial class Cube : MeshInstance3D
+public partial class Cube : StaticBody3D
 {
 
-    public bool rotating = false;
+	 public bool rotating = false;
 
     private Vector2 nextMousePosition;
     private Vector2 prevMousePosition;
 
     private double MOUSE_SENSITIVITY = 0.005;
+	// Called when the node enters the scene tree for the first time.
+	public override void _Ready()
+	{
+	}
 
-    public override void _Process(double delta)
-    {
-
-        if (Input.IsActionJustPressed("rotate")) {
+	// Called every frame. 'delta' is the elapsed time since the previous frame.
+	public override void _Process(double delta)
+	{
+		if (Input.IsActionJustPressed("rotate")) {
             rotating = true;
             prevMousePosition = GetViewport().GetMousePosition();
             GD.Print($"Get ready to fly");
@@ -30,10 +35,5 @@ public partial class Cube : MeshInstance3D
             RotateX((float)(mdelta.Y * MOUSE_SENSITIVITY));
             prevMousePosition = nextMousePosition;
         }
-    
-    }
-    
+	}
 }
-	
-		
-

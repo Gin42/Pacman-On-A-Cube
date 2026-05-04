@@ -2,18 +2,24 @@
 
 [ext_resource type="Script" uid="uid://cwxbhhqswrkab" path="res://scripts/Player.cs" id="1_4flbx"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_sh265"]
+[sub_resource type="SphereShape3D" id="SphereShape3D_qytk2"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_4flbx"]
 
-[node name="Pacman" type="CharacterBody3D" unique_id=146955882]
+[sub_resource type="SphereShape3D" id="SphereShape3D_jstje"]
+
+[node name="Pacman" type="CharacterBody3D" unique_id=1798303109]
 script = ExtResource("1_4flbx")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=734967252]
-shape = SubResource("BoxShape3D_sh265")
-debug_color = Color(0.63797987, 0.34267792, 0.9955799, 0.41960785)
+shape = SubResource("SphereShape3D_qytk2")
+debug_color = Color(0, 18.892157, 4.5950737, 1)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1039149751]
 mesh = SubResource("SphereMesh_4flbx")
 
-[node name="Pivot" type="Node3D" parent="." unique_id=545708057]
+[node name="Pivot" type="Node3D" parent="." unique_id=363872965]
+
+[node name="GroundDetector" type="ShapeCast3D" parent="." unique_id=799016516]
+shape = SubResource("SphereShape3D_jstje")
+debug_shape_custom_color = Color(1, 0, 0, 1)
